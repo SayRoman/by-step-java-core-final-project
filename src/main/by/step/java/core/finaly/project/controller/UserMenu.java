@@ -6,7 +6,8 @@ public class UserMenu extends Menu{
             "1. Show employee's list",
             "2. Searching",
             "3. Profile user",
-            "4. Exit"
+            "4. Relogin",
+            "0. Exit",
     };
 
     @Override

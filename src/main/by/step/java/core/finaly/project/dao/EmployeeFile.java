@@ -25,6 +25,7 @@ public class EmployeeFile extends FileDAO {
                         Integer.parseInt(tempArray[2]),
                         Double.parseDouble(tempArray[3])
                         )
+
                 );
 
             }

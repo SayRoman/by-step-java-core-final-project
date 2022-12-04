@@ -3,6 +3,12 @@ package by.step.java.core.finaly.project.controller;
 import by.step.java.core.finaly.project.service.EmployeeService;
 import by.step.java.core.finaly.project.service.employee.EmployeeModel;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MenuController {
@@ -78,7 +84,11 @@ public class MenuController {
 
             }
             case 4: {
-
+                separator();
+                showAllList();
+                separator();
+                workWithEmployeeAdminMenu();
+                break;
             }
             case 5: {
                 workWithAdminMenu();
@@ -107,7 +117,56 @@ public class MenuController {
         return new EmployeeModel(id, fio, age, salary);
     }
 
+    private List<String> showAllList() {
+        List<String> employees = new ArrayList<>();
+        String line;
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\src\\main\\resources\\employees.txt"));
+            while ((line = bufferedReader.readLine()) != null) {
+                employees.add(line);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (String str : employees) {
+            System.out.println(str);
+        }
+
+        return employees;
+    }
+
+    private void separator() {
+        System.out.println();
+    }
+
     private void workWithUserMenu() {
         showMenu(menu);
+        switch (sc.nextInt()) {
+            case 1: {
+                separator();
+                showAllList();
+                separator();
+                workWithUserMenu();
+                break;
+            }
+            case 2: {
+
+            }
+            case 3: {
+
+            }
+            case 4: {
+                loginController.login();
+            }
+            case 5: {
+                return;
+            }
+            default: {
+
+            }
+
+        }
     }
 }
