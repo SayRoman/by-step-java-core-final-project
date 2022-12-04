@@ -13,6 +13,12 @@ public class EmployeeModel {
         this.salary = salary;
     }
 
+    public EmployeeModel(int id, String fio, int age) {
+        this.id = id;
+        this.fio = fio;
+        this.age = age;
+    }
+
     public int getId() {
         return id;
     }

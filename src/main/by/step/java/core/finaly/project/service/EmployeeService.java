@@ -21,6 +21,11 @@ public class EmployeeService {
         ArrayList <String> convertedCollection = convertEmployeesToString();
          return employeeFile.saveFile(convertedCollection, "employees");
     }
+    public boolean deleteEmployee(EmployeeModel employeeModel) {
+        employees.remove(employeeModel.getId()-1);
+        ArrayList <String> convertedCollection = convertEmployeesToString();
+        return employeeFile.saveFile(convertedCollection, "employees");
+    }
 
     private ArrayList<String> convertEmployeesToString() {
         ArrayList<String> strings = new ArrayList<>();

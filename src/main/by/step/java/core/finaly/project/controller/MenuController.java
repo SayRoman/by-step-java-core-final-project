@@ -79,10 +79,17 @@ public class MenuController {
                 break;
             }
             case 2: {
-
+                comment("Not realization");
+                separator();
+                break;
             }
             case 3: {
-
+                separator();
+                EmployeeModel employeeModel = deleteEmployee();
+                employeeService.deleteEmployee(employeeModel);
+                separator();
+                workWithEmployeeAdminMenu();
+                break;
             }
             case 4: {
                 separator();
@@ -97,7 +104,6 @@ public class MenuController {
             default: {
 
             }
-
         }
     }
 
@@ -116,6 +122,21 @@ public class MenuController {
         System.out.print("Set salary employee: ");
         salary = sc.nextDouble();
         return new EmployeeModel(id, fio, age, salary);
+    }
+
+    private EmployeeModel deleteEmployee() {
+        int id;
+        String fio;
+        int age;
+
+        System.out.print("Input ID employee: ");
+        id = sc.nextInt();
+        System.out.print("Input FIO employee: ");
+        fio = sc.next();
+        System.out.print("Input age employee: ");
+        age = sc.nextInt();
+
+        return new EmployeeModel(id, fio, age);
     }
 
     private List<String> showAllList() {
