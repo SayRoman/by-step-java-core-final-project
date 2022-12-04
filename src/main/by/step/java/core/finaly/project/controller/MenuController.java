@@ -16,6 +16,7 @@ public class MenuController {
     private Scanner sc = new Scanner(System.in);
     private Menu menu;
     private LoginController loginController;
+    private String comment;
 
     public MenuController(Menu menu, LoginController loginController) {
         this.menu = menu;
@@ -141,21 +142,26 @@ public class MenuController {
         System.out.println();
     }
 
+    private void comment(String comment) {
+        this.comment = comment;
+        System.out.println(comment);
+    }
+
     private void workWithUserMenu() {
         showMenu(menu);
         switch (sc.nextInt()) {
             case 1: {
-                separator();
                 showAllList();
                 separator();
                 workWithUserMenu();
                 break;
             }
-            case 2: {
-
-            }
+            case 2:
             case 3: {
-
+                comment("Not realization");
+                separator();
+                workWithUserMenu();
+                break;
             }
             case 4: {
                 loginController.login();
